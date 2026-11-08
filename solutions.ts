@@ -37,3 +37,15 @@ const formatCoordinate = (coordinate :readonly [number,number,string]): string =
 
 formatCoordinate([23.81, 90.41, "Dhaka"]);
 formatCoordinate([22.35, 91.78, "Chittagong"]);
+
+
+const concatenateArrays = <T> (...arrays:T[][]):T[] =>{
+    
+    return arrays.flat()
+    
+}
+
+// Sample Input:
+concatenateArrays(["a", "b"], ["c", "d"]);
+concatenateArrays([1, 2], [3, 4], [5]);
+
