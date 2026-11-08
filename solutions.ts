@@ -49,3 +49,24 @@ const concatenateArrays = <T> (...arrays:T[][]):T[] =>{
 concatenateArrays(["a", "b"], ["c", "d"]);
 concatenateArrays([1, 2], [3, 4], [5]);
 
+
+interface Course {
+    title : string,
+    students : number,
+    isPublished :boolean
+}
+
+const getPopularCourses = (courses:Course[],minStudents :number) =>{
+    return courses.filter(course => course.students >= 45 && course.isPublished === true)
+}
+
+// Sample Input:
+const courses = [
+  { title: "TypeScript Mastery", students: 120, isPublished: true },
+  { title: "Draft Course", students: 200, isPublished: false },
+  { title: "Basic HTML", students: 45, isPublished: true },
+  { title: "Next.js Pro", students: 85, isPublished: true }
+];
+
+getPopularCourses(courses, 80);
+
