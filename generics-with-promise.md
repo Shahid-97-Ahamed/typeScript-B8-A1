@@ -62,4 +62,4 @@ After the `await`, TypeScript knows `result` is a string. Your editor suggests s
  
 Generics let you write reusable code and keep type safety. Merging arrays, picking object properties and handling async results all work the same way: `T` tells the compiler exactly what data is moving through your code.
  
-Claude finished the response
+
