@@ -1,3 +1,5 @@
+//problem-01
+
 const multiplyValue = (value: number, multiplier?: number): number => {
     if (multiplier === undefined) {
         return value * 2;
@@ -11,15 +13,19 @@ multiplyValue(10);
 multiplyValue(10, 5);
 multiplyValue(7, 0);
 
+//problem-02
 
-const processInput = (value: (string | number | boolean)) => {
+const processInput = (value: (string | number | boolean)):(string | number ) => {
     if (typeof value === "string") {
-        return value.trim().toLocaleLowerCase()
+        return value.trim().toLowerCase()
     } else if (typeof value === "number") {
-        return value * 10
+       return  value * 10
+        
     } else {
-        return value ? "Active" : "Inactive"
+          return   value ? "Active" : "Inactive";
     }
+
+    
 }
 
 // Sample Input:
@@ -28,7 +34,7 @@ processInput(7);
 processInput(true);
 processInput(false);
 
-
+//problem-03
 const formatCoordinate = (coordinate :readonly [number,number,string]): string => {
     const [latitude,longitude,locationName] = coordinate
     return `Location: ${locationName} (${latitude}, ${longitude})`
@@ -38,17 +44,25 @@ const formatCoordinate = (coordinate :readonly [number,number,string]): string =
 formatCoordinate([23.81, 90.41, "Dhaka"]);
 formatCoordinate([22.35, 91.78, "Chittagong"]);
 
+//problem -04
 
 const concatenateArrays = <T> (...arrays:T[][]):T[] =>{
-    
-    return arrays.flat()
+    const combined :T[] = []
+
+    for(const array of arrays){
+        for(const item of array){
+            combined.push(item)
+        }
+    }
+    return combined
     
 }
 
 // Sample Input:
-concatenateArrays(["a", "b"], ["c", "d"]);
-concatenateArrays([1, 2], [3, 4], [5]);
+console.log(concatenateArrays(["a", "b"], ["c", "d"]))
+console.log(concatenateArrays([1, 2], [3, 4], [5]))
 
+//problem-05
 
 interface Course {
     title : string,
@@ -56,8 +70,8 @@ interface Course {
     isPublished :boolean
 }
 
-const getPopularCourses = (courses:Course[],minStudents :number) =>{
-    return courses.filter(course => course.students >= 45 && course.isPublished === true)
+const getPopularCourses = (courses:Course[],minStudents :number):Course[] =>{
+    return courses.filter(course => course.students >= minStudents && course.isPublished )
 }
 
 // Sample Input:
@@ -68,8 +82,11 @@ const courses = [
   { title: "Next.js Pro", students: 85, isPublished: true }
 ];
 
-getPopularCourses(courses, 80);
+console.log(getPopularCourses(courses, 80))
 
+
+
+//problem-06
 
 const pluckValues = <T,K extends keyof T> (items:T[],key :K):T[K][] =>{
   return  items.map(itam => itam[key])
